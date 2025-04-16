@@ -1,0 +1,60 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
+  background: linear-gradient(to bottom, #1a1a2e, #16213e);
+  color: white;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.section {
+  flex: 1;
+  min-width: 0; /* Allows flex items to shrink properly */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 60vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #4e4e8d transparent;
+}
+
+.section h2 {
+  margin-top: 0;
+  color: #e94560;
+  position: sticky;
+  top: 0;
+  background: inherit;
+  padding-bottom: 1rem;
+  z-index: 1;
+}
+
+/* Custom scrollbar */
+.section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.section::-webkit-scrollbar-thumb {
+  background-color: #4e4e8d;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .section {
+    height: auto;
+    max-height: 40vh;
+  }
+}
