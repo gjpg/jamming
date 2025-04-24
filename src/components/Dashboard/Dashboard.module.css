@@ -1,0 +1,52 @@
+.container {
+  padding: 2rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  min-height: 0; /* Crucial for child scrolling */
+}
+
+.searchColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.searchResults {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.playlistColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-left: 1px solid #eee;
+  padding-left: 1rem;
+}
+
+.emptyState {
+  color: #666;
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  padding: 1rem;
+}

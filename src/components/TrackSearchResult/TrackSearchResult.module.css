@@ -1,0 +1,61 @@
+.track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.track:hover {
+  background-color: #f5f5f5;
+}
+
+.albumArt {
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.trackInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.artist {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.trackButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addButton {
+  background-color: #1db954;
+  color: white;
+}
+
+.addButton:hover {
+  background-color: #1ed760;
+}
+
+.removeButton {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+.removeButton:hover {
+  background-color: #ff7875;
+}

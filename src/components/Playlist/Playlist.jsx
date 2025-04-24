@@ -1,47 +1,59 @@
-import React from "react";
-import Track from "../Track/Track";
+import { useState } from "react";
 import styles from "./Playlist.module.css";
+import TrackSearchResult from "../TrackSearchResult/TrackSearchResult";
 
-function Playlist({
-  playlistName,
-  onNameChange,
-  onSave,
+export default function Playlist({
   tracks,
-  onRemove,
-  nameError,
-  emptyPlaylistError, // Receive new prop
+  onRemoveTrack,
+  onSavePlaylist,
+  loading,
 }) {
+  const [playlistName, setPlaylistName] = useState("");
+  const [error, setError] = useState(false);
+  if (loading) {
+    return <div>Loading user data...</div>;
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!playlistName.trim()) {
+      setError(true);
+      return;
+    }
+    onSavePlaylist(playlistName);
+  };
+
   return (
     <div className={styles.playlist}>
-      <input
-        type="text"
-        value={playlistName}
-        onChange={onNameChange}
-        placeholder="Playlist Name"
-        className={`${styles.input} ${nameError ? styles.error : ""}`}
-      />
-
-      {tracks.map((track) => (
-        <Track
-          key={track.id}
-          track={track}
-          onRemove={onRemove}
-          action="remove"
+      <form onSubmit={handleSubmit} className={styles.playlistForm}>
+        <input
+          type="text"
+          className={`${styles.playlistInput} ${error ? styles.error : ""}`}
+          placeholder="New Playlist"
+          value={playlistName}
+          onChange={(e) => {
+            setPlaylistName(e.target.value.slice(0, 100));
+            setError(false);
+          }}
         />
-      ))}
-
-      <button onClick={onSave} className={styles.saveButton}>
-        Save to Spotify
-      </button>
-
-      {/* Priority: Empty playlist error overrides name error */}
-      {emptyPlaylistError ? (
-        <p className={styles.errorMessage}>Your playlist is empty</p>
-      ) : nameError ? (
-        <p className={styles.errorMessage}>Your playlist needs a name</p>
-      ) : null}
+        <button
+          type="submit"
+          className={styles.saveButton}
+          disabled={!playlistName.trim()}
+        >
+          Save Playlist to Spotify
+        </button>
+      </form>
+      <div className={styles.playlistTracks}>
+        {tracks.map((track) => (
+          <TrackSearchResult
+            key={track.uri}
+            track={track}
+            variant="remove"
+            onButtonClick={() => onRemoveTrack(track)}
+          />
+        ))}
+      </div>
     </div>
   );
 }
-
-export default Playlist;
