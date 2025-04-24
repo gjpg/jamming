@@ -46,6 +46,7 @@ export default function Dashboard({ code }) {
             title: track.name,
             uri: track.uri,
             albumUrl: albumThumb.url,
+            duration: track.duration_ms,
           };
         })
       );

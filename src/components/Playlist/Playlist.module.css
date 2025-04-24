@@ -1,49 +1,57 @@
 .playlist {
-    margin-top: 2rem;
-    border-top: 1px solid #eee;
-    padding-top: 2rem;
-  }
-  
-  .playlistForm {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .playlistInput {
-    flex: 1;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .playlistInput.error {
-    border-color: #ff4d4f;
-  }
-  
-  .saveButton {
-    padding: 0.75rem 1.5rem;
-    background-color: #1db954;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .saveButton:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .saveButton:hover:not(:disabled) {
-    background-color: #1ed760;
-  }
-  
-  .playlistTracks {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 2rem;
+}
+
+.playlistForm {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.playlistInput {
+  width: 200px; /* Reduced width */
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.totalDuration {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #444;
+  white-space: nowrap;
+}
+
+.playlistInput.error {
+  border-color: #ff4d4f;
+}
+
+.saveButton {
+  padding: 0.75rem 1.5rem;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.saveButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.saveButton:hover:not(:disabled) {
+  background-color: #1ed760;
+}
+
+.playlistTracks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

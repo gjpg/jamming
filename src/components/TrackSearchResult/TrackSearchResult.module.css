@@ -33,11 +33,30 @@
   font-size: 0.9rem;
 }
 
-.trackButton {
-  padding: 0.5rem 1rem;
+.duration {
+  margin-right: 1rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.trackControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.addButton,
+.removeButton {
+  width: 32px;
+  height: 32px;
+  padding: 0;
   border: none;
-  border-radius: 4px;
-  font-weight: 600;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: background-color 0.2s;
 }
